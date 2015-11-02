@@ -15,6 +15,15 @@ angular.module('mean.articles').config(['$stateProvider',
           }
         }
       })
+      .state('test mongo', {
+        url: '/articles/test',
+        templateUrl: '/articles/views/test.html',
+        resolve: {
+          loggedin: function(MeanUser) {
+            return MeanUser.checkLoggedin();
+          }
+        }
+      })
       .state('create article', {
         url: '/articles/create',
         templateUrl: '/articles/views/create.html',
