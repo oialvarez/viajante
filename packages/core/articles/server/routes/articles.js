@@ -28,7 +28,10 @@ module.exports = function(Articles, app, auth) {
 
   app.route('/api/articles')
     .get(articles.all)
-    .post(auth.requiresLogin, hasPermissions, articles.create);
+    .post(auth.requiresLogin, hasPermissions, articles.create); 
+  app.route('/api/articles/test')
+    .get(articles.all)
+    .post(auth.requiresLogin, hasPermissions, articles.create);   
   app.route('/api/articles/:articleId')
     .get(auth.isMongoId, articles.show)
     .put(auth.isMongoId, auth.requiresLogin, hasAuthorization, hasPermissions, articles.update)

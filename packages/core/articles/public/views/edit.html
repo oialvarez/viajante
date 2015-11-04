@@ -30,6 +30,21 @@
           </ui-select>
       </div>
     </div>
+
+
+
+    <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.testField.$invalid }">
+      <label mean-token="'edit-testField'" for="testField" class="col-md-2 control-label">TestField</label>
+      <div class="col-md-10">
+        <textarea name="testField" data-ng-model="article.testField" id="testField" cols="30" rows="10" placeholder="testField" class="form-control" required></textarea>
+        <div ng-show="submitted && articleForm.testField.$invalid" class="help-block">
+          <p ng-show="articleForm.testField.$error.required">Content is required</p>
+        </div>
+      </div>
+    </div>
+   
+
+
     <div class="form-group" ng-show="descendants.length">
         <label mean-token="'descendants'" for="descendants" class="col-md-2 control-label">Descendants</label>
         <div class="col-md-10">

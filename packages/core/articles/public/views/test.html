@@ -1,9 +1,12 @@
 <section data-ng-controller="ArticlesController" data-ng-init="find()">
   <ul class="articles unstyled">
       <h1>My awesome test</h1>
+      {{article}}
     <li data-ng-repeat="article in articles">
       <span>{{article.created | date:'medium'}}</span> /
       <span>{{article.user.name}}</span>
+      <br>
+      <span><strong>Test Field : {{article.testField}}</strong></span>
       <h2>
         <a data-ng-href="/articles/{{article._id}}">{{article.title}}</a>
         <span data-ng-if="hasAuthorization(article)">

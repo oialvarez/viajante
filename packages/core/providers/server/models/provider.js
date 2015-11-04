@@ -8,9 +8,9 @@ var mongoose = require('mongoose'),
 
 
 /**
- * Article Schema
+ * Provider Schema
  */
-var ArticleSchema = new Schema({
+var ProviderSchema = new Schema({
   created: {
     type: Date,
     default: Date.now
@@ -44,25 +44,25 @@ var ArticleSchema = new Schema({
 /**
  * Validations
  */
-ArticleSchema.path('title').validate(function(title) {
+ProviderSchema.path('title').validate(function(title) {
   return !!title;
 }, 'Title cannot be blank');
 
-ArticleSchema.path('content').validate(function(content) {
+ProviderSchema.path('content').validate(function(content) {
   return !!content;
 }, 'Content cannot be blank');
 
-ArticleSchema.path('testField').validate(function(testField) {
+ProviderSchema.path('testField').validate(function(testField) {
   return !!testField;
 }, 'testField cannot be blank');
 
 /**
  * Statics
  */
-ArticleSchema.statics.load = function(id, cb) {
+ProviderSchema.statics.load = function(id, cb) {
   this.findOne({
     _id: id
   }).populate('user', 'name username').exec(cb);
 };
 
-mongoose.model('Article', ArticleSchema);
+mongoose.model('Provider', ProviderSchema);

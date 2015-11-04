@@ -1,0 +1,14 @@
+<section data-ng-controller="ProvidersController" data-ng-init="findOne()">
+  <span>{{provider.created | date:'medium'}}</span> /
+  <span>{{provider.user.name}}</span>
+  <h2>{{provider.title}}</h2>
+  <div data-ng-if="hasAuthorization(provider)">
+    <a class="btn" href="/providers/{{provider._id}}/edit">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn" data-ng-click="remove(provider);">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+  <div>{{provider.content}}</div>
+</section>
