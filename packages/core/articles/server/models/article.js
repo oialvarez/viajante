@@ -34,7 +34,11 @@ var ArticleSchema = new Schema({
   },
   updated: {
     type: Array
-  }
+  },
+  cabin : [{name:String,
+            capacity: Number,
+            price: Number}]
+
 });
 
 /**

@@ -28,9 +28,18 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
     };
 
     $scope.create = function(isValid) {
+     
       if (isValid) {
-        // $scope.article.permissions.push('test test');
+     
+        var cabins = $scope.cabins;
+        $scope.article.cabin = [];
+
+        for (var i =0; i<cabins.length ; i++){
+          $scope.article.cabin.push(cabins[i])         
+        }
+
         var article = new Articles($scope.article);
+        
 
         article.$save(function(response) {
           $location.path('articles/' + response._id);
@@ -89,5 +98,16 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
         $scope.article = article;
       });
     };
+
+    $scope.cabins = [];
+
+    $scope.add = function () {
+          $scope.cabins.push({ 
+            name: "",
+            capacity: "",
+            price: "",
+            text: ""
+          });
+        };
   }
 ]);
