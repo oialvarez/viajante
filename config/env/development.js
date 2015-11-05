@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  db: 'mongodb://' + (process.env.DB_PORT_27017_TCP_ADDR || 'localhost') + '/mean-dev',
+  db: 'mongodb://' + (process.env.DB_PORT_27017_TCP_ADDR || 'localhost') + '/viajante-dev',
   debug: true,
   logging: {
     format: 'tiny'
@@ -11,9 +11,9 @@ module.exports = {
   mongoose: {
     debug: false
   },
-  hostname: 'http://localhost:3000',
+  hostname: 'http://localhost:3001',
   app: {
-    name: 'MEAN - A Modern Stack - Development'
+    name: 'Viajante - Development'
   },
   strategies: {
     local: {
