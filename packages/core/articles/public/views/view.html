@@ -11,4 +11,12 @@
     </a>
   </div>
   <div>{{article.content}}</div>
+
+<div data-ng-repeat = "cabin in article.cabin">
+  <div>
+    <div style = "float:left">Tipo: {{cabin.name}}</div>
+    <div style = "float:left" >Capacidad: {{cabin.capacity}}</div>
+    <div style = "float:left">Precio: {{cabin.price}}</div><br>
+</div>
+
 </section>
