@@ -18,7 +18,7 @@
         </div>
       </div>
     </div>
-    
+
  <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.cabin.$invalid }">
       <label mean-token="'edit-cabin'" class="col-md-3 control-label">Cabañas</label>
       <div class="col-md-9">
@@ -28,6 +28,7 @@
         <input type="text" placeholder="Nombre del tipo de cabaña" ng-model="item.name">
         <input type="text" placeholder="Capacidad" ng-model="item.capacity">
         <input type="text" placeholder="Precio" ng-model="item.price">
+        <button ng-click="removeCabin($index)" type="button">Remover</button>  
       </div>
       <button ng-click="addCabin()" type="button">Agregar Tipo de Cabaña</button>
     </div>
@@ -41,6 +42,7 @@
         <div ng-repeat="item in article.service">
           <input type="text" placeholder="Servicio" ng-model="item.name">
           <input type="text" placeholder="desripcion" ng-model="item.description">
+          <button ng-click="removeService($index)" type="button">Remover</button>  
       </div>
       <button ng-click="addService()" type="button">Agregar Servicio</button>
     </div>

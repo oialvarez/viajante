@@ -140,6 +140,15 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
           });
     };
 
+    $scope.removeService = function (index){
+        $scope.services.splice(index,1)
+    };
+    $scope.removeCabin = function (index){
+      
+        $scope.cabins.splice(index,1)
+
+    };
+
 
 
   }
