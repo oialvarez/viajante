@@ -15,7 +15,7 @@
       <div class="col-md-9">
         <input name="subtitle" type="text" class="form-control" data-ng-model="article.subtitle" id="subtitle" placeholder="Subtitle" required>
         <div ng-show="submitted && articleForm.subtitle.$invalid" class="help-block">
-          <p ng-show="articleForm.subtitle.$error.required">Title is required</p>
+          <p ng-show="articleForm.subtitle.$error.required">Subtitle is required</p>
         </div>
       </div>
     </div>
@@ -28,6 +28,7 @@
           <input type="text" placeholder="Nombre del tipo de cabaña" ng-model="item.name">
           <input type="text" placeholder="Capacidad" ng-model="item.capacity">
           <input type="text" placeholder="Precio" ng-model="item.price">
+          <button ng-click="removeCabin($index)" type="button">Remover</button>  
         </div>
         <button ng-click="addCabin()" type="button">Agregar Tipo de Cabaña</button>
       </div>
@@ -39,6 +40,7 @@
         <div ng-repeat="item in services">
           <input type="text" placeholder="Servicio" ng-model="item.name">
           <input type="text" placeholder="desripcion" ng-model="item.description">
+          <button ng-click="removeService($index)" type="button">Remover</button>    
       </div>
       <button ng-click="addService()" type="button">Agregar Servicio</button>
     </div>
