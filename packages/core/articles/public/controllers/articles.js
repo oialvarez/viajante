@@ -30,7 +30,7 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
     $scope.create = function(isValid) {
      
       if (isValid) {
-     
+  
         var cabins = $scope.cabins;
         $scope.article.cabin = [];
 
@@ -38,9 +38,15 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
           $scope.article.cabin.push(cabins[i])         
         }
 
+        var services = $scope.services;
+        $scope.article.service = [];
+
+        for (var i =0; i<services.length ; i++){
+          $scope.article.service.push(services[i])         
+        }
+
         var article = new Articles($scope.article);
         
-
         article.$save(function(response) {
           $location.path('articles/' + response._id);
         });
@@ -71,6 +77,20 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
 
     $scope.update = function(isValid) {
       if (isValid) {
+        var cabins = $scope.cabins;
+        $scope.article.cabin = [];
+
+        for (var i =0; i<cabins.length ; i++){
+          $scope.article.cabin.push(cabins[i])         
+        }
+
+        var services = $scope.services;
+        $scope.article.service = [];
+
+        for (var i =0; i<services.length ; i++){
+          $scope.article.service.push(services[i])         
+        }
+
         var article = $scope.article;
         if (!article.updated) {
           article.updated = [];
@@ -91,23 +111,36 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
       });
     };
 
-    $scope.findOne = function() {
+    $scope.findOne = function() { 
       Articles.get({
         articleId: $stateParams.articleId
       }, function(article) {
+        $scope.cabins = article.cabin;
+        $scope.services = article.service;
         $scope.article = article;
+       
       });
     };
 
     $scope.cabins = [];
-
-    $scope.add = function () {
+    $scope.addCabin = function () {
           $scope.cabins.push({ 
             name: "",
             capacity: "",
             price: "",
             text: ""
           });
-        };
+    };
+
+    $scope.services = [];
+    $scope.addService = function () {
+          $scope.services.push({
+            name:"",
+            description:""
+          });
+    };
+
+
+
   }
 ]);

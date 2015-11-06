@@ -2,6 +2,7 @@
   <span>{{article.created | date:'medium'}}</span> /
   <span>{{article.user.name}}</span>
   <h2>{{article.title}}</h2>
+  <h2>{{article.subtitle}}</h2>
   <div data-ng-if="hasAuthorization(article)">
     <a class="btn" href="/articles/{{article._id}}/edit">
       <i class="glyphicon glyphicon-edit"></i>
@@ -11,12 +12,42 @@
     </a>
   </div>
   <div>{{article.content}}</div>
-
+<br>cabañas<br>
 <div data-ng-repeat = "cabin in article.cabin">
   <div>
     <div style = "float:left">Tipo: {{cabin.name}}</div>
     <div style = "float:left" >Capacidad: {{cabin.capacity}}</div>
     <div style = "float:left">Precio: {{cabin.price}}</div><br>
+</div>
+</div>
+<br>
+servicios
+<br>
+<div data-ng-repeat = "cabin in article.service">
+  <div>
+    <div style = "float:left">nombre: {{cabin.name}}</div>
+    <div style = "float:left" >descripcion: {{cabin.description}}</div><br>
+
+</div>
+</div>
+  contact
+  <div data-ng-repeat = "item in article.contact">
+      <div>
+  <span>person  : {{item.person}}</span>
+  <span> phone {{item.phone}}</span>
+  <span>mail: {{item.email}}</span>
+  <span> website{{item.website}}</span>
+</div>
+</div>
+  <br>
+
+  location
+    <div data-ng-repeat = "item in article.location">
+      <div>
+  <span>address : {{item.address}}</span>
+  <span> Lat:{{item.lat}}</span>
+  <span> Lon :{{item.lon}}</span>
+</div>
 </div>
 
 </section>
