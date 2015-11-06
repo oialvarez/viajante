@@ -20,6 +20,11 @@ var ArticleSchema = new Schema({
     required: true,
     trim: true
   },
+  subtitle: {
+    type: String,
+    required: true,
+    trim: true
+  },
   content: {
     type: String,
     required: true,
@@ -37,7 +42,22 @@ var ArticleSchema = new Schema({
   },
   cabin : [{name:String,
             capacity: Number,
-            price: Number}]
+            price: Number}],
+  service : [{name:String,
+            capacity: Number,
+            description: Number}],
+  location: [{
+              address: String,
+              lat: Number,
+              lon: Number
+            }],
+  contact: [{
+              person: String,
+              phone: Number,
+              website: String,
+              email: String
+            }]                              
+
 
 });
 
