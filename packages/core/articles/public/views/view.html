@@ -1,9 +1,44 @@
 <section data-ng-controller="ArticlesController" data-ng-init="findOne()">
-  <span>{{article.created | date:'medium'}}</span> /
-  <span>{{article.user.name}}</span>
-  <h2>{{article.title}}</h2>
-  <h2>{{article.subtitle}}</h2>
-  <div data-ng-if="hasAuthorization(article)">
+  <!--span>{{article.created | date:'medium'}}</span> /
+  <span>{{article.user.name}}</span-->
+  <h1>{{article.title}}</h1>
+  <h2 style = "text-align:center">{{article.subtitle}}</h2>
+  
+  <div>{{article.content}}</div>
+<h3>Cabañas</h3>
+<div data-ng-repeat = "cabin in article.cabin">
+  <p>
+    <div style = "float:left"><strong>{{cabin.name}}</strong></div>
+    <div style = "float:left"> . Capacidad: {{cabin.capacity}} personas</div>
+    <div style = "float:left"> . Precio: ${{cabin.price}}</div>
+  </p><br>
+</div>
+<h3>Servicios</h3>
+<div data-ng-repeat = "cabin in article.service">
+  <ul>
+    <li>{{cabin.name}}.{{cabin.description}}</li>
+</ul>
+</div>
+  <h3>Contacto</h3>
+  <div data-ng-repeat = "item in article.contact">
+  <ul>
+  <!--span> {{item.person}}</span-->
+    <li><strong> Telefono: </strong>+52  {{item.phone}}</li>
+    <li><strong> Email:</strong> {{item.email}}</li>
+    <li><strong> Website:</strong> {{item.website}}</li>
+  </ul>
+</div>
+  <br>
+
+  <h3>Ubicacion</h3>
+    <div data-ng-repeat = "item in article.location">
+      <div>
+  <span>{{item.address}}</span>
+  <span> . ({{item.lat}},</span>
+  <span> {{item.lon}}).</span>
+</div>
+</div>
+<div data-ng-if="hasAuthorization(article)">
     <a class="btn" href="/articles/{{article._id}}/edit">
       <i class="glyphicon glyphicon-edit"></i>
     </a>
@@ -11,43 +46,4 @@
       <i class="glyphicon glyphicon-trash"></i>
     </a>
   </div>
-  <div>{{article.content}}</div>
-<br>cabañas<br>
-<div data-ng-repeat = "cabin in article.cabin">
-  <div>
-    <div style = "float:left">Tipo: {{cabin.name}}</div>
-    <div style = "float:left" >Capacidad: {{cabin.capacity}}</div>
-    <div style = "float:left">Precio: {{cabin.price}}</div><br>
-</div>
-</div>
-<br>
-servicios
-<br>
-<div data-ng-repeat = "cabin in article.service">
-  <div>
-    <div style = "float:left">nombre: {{cabin.name}}</div>
-    <div style = "float:left" >descripcion: {{cabin.description}}</div><br>
-
-</div>
-</div>
-  contact
-  <div data-ng-repeat = "item in article.contact">
-      <div>
-  <span>person  : {{item.person}}</span>
-  <span> phone {{item.phone}}</span>
-  <span>mail: {{item.email}}</span>
-  <span> website{{item.website}}</span>
-</div>
-</div>
-  <br>
-
-  location
-    <div data-ng-repeat = "item in article.location">
-      <div>
-  <span>address : {{item.address}}</span>
-  <span> Lat:{{item.lat}}</span>
-  <span> Lon :{{item.lon}}</span>
-</div>
-</div>
-
 </section>
