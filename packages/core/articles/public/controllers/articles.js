@@ -112,10 +112,11 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
     };
 
     $scope.findOne = function() { 
+     
       Articles.get({
         articleId: $stateParams.articleId
       }, function(article) {
-        $scope.cabins = article.cabin;
+        $scope.cabins = formatPrices(article.cabin);
         $scope.services = article.service;
         $scope.article = article;
        
@@ -148,6 +149,28 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
         $scope.cabins.splice(index,1)
 
     };
+
+    function formatPrice(input){
+
+      var num = input;
+      if(!isNaN(input)){
+        num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g,'$1.');
+        num = "$" + num.split('').reverse().join('').replace(/^[\.]/,'');
+       return num
+
+      }
+    }
+
+
+    function formatPrices(array){
+
+      for(var i = 0 ; i < array.length ; i++){
+        array[i].price = formatPrice(array[i].price)
+      }
+      return array;
+    }
+
+
 
 
 
