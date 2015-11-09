@@ -17,7 +17,7 @@ angular.module('mean.hospedaje').controller('HospedajeController', [
         };
 
         $scope.hospedaje.history = [];
-        ¢scope.search = function (isValid) {
+        $scope.search = function (isValid) {
             if (isValid) {
                 var query = $scope.hospedaje.query;
                 $scope.hospedaje.history.push(query);
