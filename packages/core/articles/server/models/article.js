@@ -48,14 +48,15 @@ var ArticleSchema = new Schema({
   location: [{
               address: String,
               lat: Number,
-              lon: Number
+              lon: Number,
+              city:String
             }],
   contact: [{
               person: String,
               phone: Number,
               website: String,
               email: String
-            }]                              
+            }]
 
 
 });
