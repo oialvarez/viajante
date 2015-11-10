@@ -82,11 +82,3 @@ ArticleSchema.statics.load = function(id, cb) {
 
 mongoose.model('Article', ArticleSchema);
 
-RegionSchema.statics.load = function(id, cb) {
-  this.findOne({
-    _id: id
-  }).populate('user', 'name username').exec(cb);
-};
-
-mongoose.model('Region', RegionSchema);
-
