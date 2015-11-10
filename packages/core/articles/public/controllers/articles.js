@@ -90,7 +90,7 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
         for (var i =0; i<services.length ; i++){
           $scope.article.service.push(services[i])         
         }
-
+        
         var article = $scope.article;
         if (!article.updated) {
           article.updated = [];
@@ -116,7 +116,8 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
       Articles.get({
         articleId: $stateParams.articleId
       }, function(article) {
-        $scope.cabins = formatPrices(article.cabin);
+        //$scope.cabins = formatPrices(article.cabin);
+        $scope.cabins = article.cabin;
         $scope.services = article.service;
         $scope.article = article;
        
@@ -157,10 +158,8 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
         num = num.toString().split('').reverse().join('').replace(/(?=\d*\.?)(\d{3})/g,'$1.');
         num = "$" + num.split('').reverse().join('').replace(/^[\.]/,'');
        return num
-
       }
     }
-
 
     function formatPrices(array){
 
@@ -170,6 +169,167 @@ angular.module('mean.articles').controller('ArticlesController', ['$scope', '$st
       return array;
     }
 
+    //$scope.region = [{"region_id": 1,"region_nombre": "Arica y Parinacota","region_ordinal": "XV"}, {"region_id": 2,"region_nombre": "Tarapacá","region_ordinal": "I"}, {"region_id": 3,"region_nombre": "Antofagasta","region_ordinal": "II"}, {"region_id": 4,"region_nombre": "Atacama","region_ordinal": "III"}, {"region_id": 5,"region_nombre": "Coquimbo","region_ordinal": "IV"}, {"region_id": 6,"region_nombre": "Valparaiso","region_ordinal": "V"}, {"region_id": 7,"region_nombre": "Metropolitana de Santiago","region_ordinal": "RM"}, {"region_id": 8,"region_nombre": "Libertador General Bernardo O\'Higgins","region_ordinal": "VI"}, {"region_id": 9,"region_nombre": "Maule","region_ordinal": "VII"}, {"region_id": 10,"region_nombre": "Biobío","region_ordinal": "VIII"}, {"region_id": 11,"region_nombre": "La Araucanía","region_ordinal": "IX"}, {"region_id": 12,"region_nombre": "Los Ríos","region_ordinal": "XIV"}, {"region_id": 13,"region_nombre": "Los Lagos","region_ordinal": "X"}, {"region_id": 14,"region_nombre": "Aisén del General Carlos Ibáñez del Campo","region_ordinal": "XI"}, {"region_id": 15,"region_nombre": "Magallanes y de la Antártica Chilena","region_ordinal": "XII"}];
+
+    $scope.findDummy = function() {
+
+      $scope.articles = [
+      
+      { "_id":"563e9944eac9d90a07a8b656",
+        "user":{"_id":"563d506703884a6f0560bd13",
+              "username":"ebm",
+              "name":"eriss"
+              },
+        "title":"Cabañas Cajon del Maipo",
+        "subtitle":"Un paraiso a 20 kms de Santiago",
+        "content":"lorem ipsum",
+        "__v":2,
+        "contact":[
+              { "person":"Sra Maria",
+                "phone":23442323,
+                "email":"ebm@ebm.cl",
+                "website":"www.cabañashorcon.cl",
+                "_id":"563e9944eac9d90a07a8b652"
+              }
+            ],
+        "location":[
+              { "address":"Calle Falsa 123",
+                "lat":30,
+                "lon":70,
+                "_id":"563e9944eac9d90a07a8b653"
+              }
+            ],
+        "service":[
+              { 
+                "name":"TV Cable",
+                "description":null,
+                "_id":"563ea763eac9d90a07a8b659"
+              },
+              { 
+                "name":"Piscina",
+                "description":null,
+                "_id":"563ea763eac9d90a07a8b658"
+              },
+              {
+                "name":"Desayuno",
+                "description":null,
+                "_id":"563ea763eac9d90a07a8b657"
+              },
+              {
+                "name":"Cena",
+                "description":null, 
+                "_id":"563ea763eac9d90a07a8b656"
+              }
+            ],
+        "cabin":[
+            {
+              "name":"Basica",
+              "capacity":4,
+              "price":30000,
+              "_id":"563e9944eac9d90a07a8b651"
+            },
+            {
+              "name":"dummy2",
+              "capacity":6,
+              "price":40000,
+              "_id":"563ea6d3eac9d90a07a8b655"
+            },
+            {
+              "name":"dummy3",
+              "capacity":12,
+              "price":50000,
+              "_id":"563ea6d3eac9d90a07a8b654"
+            }
+          ],
+        "updated":[1446946515685,1446946659595],
+        "permissions":["authenticated"],
+        "created":"2015-11-08T00:37:24.405Z"
+    },
+
+
+
+    { "_id":"563e9944eac9d90a07a8b656",
+        "user":{"_id":"563d506703884a6f0560bd13",
+              "username":"ebm",
+              "name":"eriss"
+              },
+        "title":"Cabaña Erick",
+        "subtitle":"cerca de la casa",
+        "content":"lorem ipsum",
+        "__v":2,
+        "contact":[
+              { "person":"Sra Maria",
+                "phone":23442323,
+                "email":"ebm@ebm.cl",
+                "website":"www.cabañashorcon.cl",
+                "_id":"563e9944eac9d90a07a8b652"
+              }
+            ],
+        "location":[
+              { "address":"Calle Falsa 123",
+                "lat":30,
+                "lon":70,
+                "_id":"563e9944eac9d90a07a8b653"
+              }
+            ],
+        "service":[
+              { 
+                "name":"TV Cable",
+                "description":null,
+                "_id":"563ea763eac9d90a07a8b659"
+              },
+              { 
+                "name":"Piscina",
+                "description":null,
+                "_id":"563ea763eac9d90a07a8b658"
+              },
+              {
+                "name":"Desayuno",
+                "description":null,
+                "_id":"563ea763eac9d90a07a8b657"
+              },
+              {
+                "name":"Cena",
+                "description":null, 
+                "_id":"563ea763eac9d90a07a8b656"
+              }
+            ],
+        "cabin":[
+            {
+              "name":"Basica",
+              "capacity":4,
+              "price":30000,
+              "_id":"563e9944eac9d90a07a8b651"
+            },
+            {
+              "name":"dummy2",
+              "capacity":6,
+              "price":40000,
+              "_id":"563ea6d3eac9d90a07a8b655"
+            },
+            {
+              "name":"dummy3",
+              "capacity":12,
+              "price":50000,
+              "_id":"563ea6d3eac9d90a07a8b654"
+            }
+          ],
+        "updated":[1446946515685,1446946659595],
+        "permissions":["authenticated"],
+        "created":"2015-11-08T00:37:24.405Z"
+    }
+
+
+
+
+  ];
+
+
+
+
+
+
+    }
 
 
 

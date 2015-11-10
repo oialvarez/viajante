@@ -6,7 +6,6 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
-
 /**
  * Article Schema
  */
@@ -82,3 +81,4 @@ ArticleSchema.statics.load = function(id, cb) {
 };
 
 mongoose.model('Article', ArticleSchema);
+
