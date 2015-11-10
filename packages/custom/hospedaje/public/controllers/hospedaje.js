@@ -2,7 +2,7 @@
 
 /* jshint -W098 */
 angular.module('mean.hospedaje').controller('HospedajeController', [
-    '$scope', 'Global', 'Hospedaje', 'City',
+    '$scope', 'Global', 'Hospedaje',
     function ($scope, Global, Hospedaje) {
         $scope.global = Global;
         $scope.package = {
