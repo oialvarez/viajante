@@ -1,6 +1,9 @@
-<section data-ng-controller="ArticlesController" data-ng-init="find()">
+<section data-ng-controller="ArticlesController" data-ng-init="findDummy()">
   <ul class="articles unstyled">
-    <li data-ng-repeat="article in articles">
+    <label > Nombre: <input ng-model="search.tittle"></label>
+    
+   
+    <li data-ng-repeat="article in articles | filter:search" >
       <span>{{article.created | date:'medium'}}</span> /
       <span>{{article.user.name}}</span>
       <h2>
@@ -18,4 +21,9 @@
     </li>
   </ul>
   <h1 data-ng-hide="!articles || articles.length">No articles yet. <br> Why don't you <a href="/articles/create">Create One</a>?</h1>
+
+
+
+
+
 </section>

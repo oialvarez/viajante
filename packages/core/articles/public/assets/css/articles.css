@@ -4,3 +4,34 @@ h1 {
 ul.articles li:not(:last-child) {
 	border-bottom: 1px solid #ccc
 }
+
+.customBanner{
+
+	height: 150px;
+	width: 1000px;
+	border:solid 1px;
+	padding: 30px;
+}
+.customMenu{
+
+	height: 50px;
+	width: 1000px;
+	border:solid 1px;
+
+}
+.customContent{
+
+
+	width: 1000px;
+	border:solid 1px;
+	padding: 15px;
+}
+
+.customFooter{
+
+	height: 40px;
+	width: 1000px;
+	border:solid 1px;
+	text-align: right;
+	padding: 10px;
+}
