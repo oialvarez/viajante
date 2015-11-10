@@ -1,9 +1,7 @@
-<section data-ng-controller="ArticlesController" data-ng-init="findOne()">
+<section data-ng-controller="ArticlesController" data-ng-init="find()">
   <ul class="articles unstyled">
-    <label > Nombre: <input ng-model="search.tittle"></label>
-    
    
-    <li data-ng-repeat="article in articles | filter:search" >
+    <li data-ng-repeat="article in articles " >
       <span>{{article.created | date:'medium'}}</span> /
       <span>{{article.user.name}}</span>
       <h2>
