@@ -1,7 +1,7 @@
 {
-  "name": "hospedaje",
+  "name": "roomsearch",
   "version": "0.0.1",
-  "description": "buscador de hospedajes",
+  "description": "buscador de habitaciones",
   "author": {
     "name": "oscar alvarez"
   },

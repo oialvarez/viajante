@@ -1,9 +1,7 @@
 'use strict';
 
 var mongoose = require('mongoose'),
-    Schema = mongoose.Schema,
-    User = mongoose.model('User'),
-    City = mongoose.model('City');
+    Schema = mongoose.Schema;
 
 var SearchSchema = new Schema({
     created: Date,
@@ -11,8 +9,8 @@ var SearchSchema = new Schema({
     query: String,
     lat: Number,
     lng: Number,
-    users: [User],
-    city: [City]
+    user: String,
+    city: String
 });
 
 mongoose.model('Search', SearchSchema);
