@@ -6,7 +6,6 @@
 var mongoose = require('mongoose'),
   Schema = mongoose.Schema;
 
-
 /**
  * Article Schema
  */
@@ -16,6 +15,11 @@ var ArticleSchema = new Schema({
     default: Date.now
   },
   title: {
+    type: String,
+    required: true,
+    trim: true
+  },
+  subtitle: {
     type: String,
     required: true,
     trim: true
@@ -34,7 +38,27 @@ var ArticleSchema = new Schema({
   },
   updated: {
     type: Array
-  }
+  },
+  cabin : [{name:String,
+            capacity: Number,
+            price: Number}],
+  service : [{name:String,
+            capacity: Number,
+            description: Number}],
+  location: [{
+              address: String,
+              lat: Number,
+              lon: Number,
+              city:String
+            }],
+  contact: [{
+              person: String,
+              phone: Number,
+              website: String,
+              email: String
+            }]
+
+
 });
 
 /**
@@ -58,3 +82,4 @@ ArticleSchema.statics.load = function(id, cb) {
 };
 
 mongoose.model('Article', ArticleSchema);
+

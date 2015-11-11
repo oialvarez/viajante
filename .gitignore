@@ -72,3 +72,9 @@ modules/views/
 # vim Files
 # --------------------
 *.swp
+
+nohup.out
+operations/dev/*
+operations/test/*
+operations/prod/*
+

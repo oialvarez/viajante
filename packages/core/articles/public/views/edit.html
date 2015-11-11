@@ -9,6 +9,76 @@
         </div>
       </div>
 
+          <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.subtitle.$invalid }">
+      <label mean-token="'create-subtitle'" class="col-md-3 control-label">Title</label>
+      <div class="col-md-9">
+        <input name="subtitle" type="text" class="form-control" data-ng-model="article.subtitle" id="subtitle" placeholder="Subtitle" required>
+        <div ng-show="submitted && articleForm.subtitle.$invalid" class="help-block">
+          <p ng-show="articleForm.subtitle.$error.required">Title is required</p>
+        </div>
+      </div>
+    </div>
+
+ <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.cabin.$invalid }">
+      <label mean-token="'edit-cabin'" class="col-md-3 control-label">Cabañas</label>
+      <div class="col-md-9">
+
+    <div ng-repeat="item in article.cabin">
+      
+        <input type="text" placeholder="Nombre del tipo de cabaña" ng-model="item.name">
+        <input type="text" placeholder="Capacidad" ng-model="item.capacity">
+        <input type="text" placeholder="Precio" ng-model="item.price">
+        <button ng-click="removeCabin($index)" type="button">Remover</button>  
+      </div>
+      <button ng-click="addCabin()" type="button">Agregar Tipo de Cabaña</button>
+    </div>
+
+  </div>
+
+  <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.service.$invalid }">
+      <label mean-token="'edit-service'" class="col-md-3 control-label">Servicios</label>
+      <div class="col-md-9">
+
+        <div ng-repeat="item in article.service">
+          <input type="text" placeholder="Servicio" ng-model="item.name">
+          <input type="text" placeholder="desripcion" ng-model="item.description">
+          <button ng-click="removeService($index)" type="button">Remover</button>  
+      </div>
+      <button ng-click="addService()" type="button">Agregar Servicio</button>
+    </div>
+
+  </div>
+
+
+  <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.location.$invalid }">
+      <label mean-token="'edit-location'" class="col-md-3 control-label">Location</label>
+
+      <div class="col-md-9">
+        <input name="address" type="text" class="form-control" data-ng-model="article.location[0].address" id="address" placeholder="Adress" required>
+        <input name="latitude" type="text" class="form-control" data-ng-model="article.location[0].lat" id="latitude" placeholder="latitude" required>
+      <input name="longitude" type="text" class="form-control" data-ng-model="article.location[0].lon" id="longitude" placeholder="longitude" required>
+        <div ng-show="submitted && articleForm.location.$invalid" class="help-block">
+          <p ng-show="articleForm.location.$error.required">Title is required</p>
+        </div>
+      </div>
+
+    </div>
+
+  <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.contact.$invalid }">
+      <label mean-token="'edit-contact'" class="col-md-3 control-label">Contact</label>
+      <div class="col-md-9">
+        <input name="person" type="text" class="form-control" data-ng-model="article.contact[0].person" id="person" placeholder="person" required>
+        <input name="phone" type="text" class="form-control" data-ng-model="article.contact[0].phone" id="phone" placeholder="phone" required>
+      <input name="email" type="text" class="form-control" data-ng-model="article.contact[0].email" id="email" placeholder="email" required>
+          <input name="website" type="text" class="form-control" data-ng-model="article.contact[0].website" id="website" placeholder="website" required>
+        <div ng-show="submitted && articleForm.contact.$invalid" class="help-block">
+          <p ng-show="articleForm.contact.$error.required">Title is required</p>
+        </div>
+      </div>
+
+    </div>
+
+
     </div>
     <div class="form-group" ng-class="{ 'has-error' : submitted && articleForm.content.$invalid }">
       <label mean-token="'edit-content'" for="content" class="col-md-2 control-label">Content</label>
