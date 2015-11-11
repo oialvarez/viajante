@@ -11,7 +11,7 @@ var Providers = new Module('providers');
  * All MEAN packages require registration
  * Dependency injection is used to define required modules
  */
-Providers.register(function(app, auth, database) {
+Providers.register(function(app, auth, database, circles, swagger) {
 
   //We enable routing. By default the Package Object is passed to the routes
   Providers.routes(app, auth, database);
@@ -22,6 +22,10 @@ Providers.register(function(app, auth, database) {
     link: 'providers example page',
     roles: ['authenticated'],
     menu: 'main'
+  });
+  Providers.events.defaultData({
+    type: 'post',
+    subtype: 'provider'
   });
   
   Providers.aggregateAsset('css', 'providers.css');
@@ -47,6 +51,8 @@ Providers.register(function(app, auth, database) {
         //you now have the settings object
     });
     */
-
+  swagger.add(__dirname);
   return Providers;
 });
+
+
