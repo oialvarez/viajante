@@ -1,0 +1,27 @@
+<section data-ng-controller="ProvidersController" data-ng-init="find()">
+  <ul class="providers unstyled">
+   
+    <li data-ng-repeat="provider in providers " >
+      <span>{{provider.created | date:'medium'}}</span> /
+      <span>{{provider.user.name}}</span>
+      <h2>
+        <a data-ng-href="/providers/{{provider._id}}">{{provider.title}}</a>
+        <span data-ng-if="hasAuthorization(provider)">
+          <a class="btn" href="/providers/{{provider._id}}/edit">
+            <i class="glyphicon glyphicon-edit"></i>
+          </a>
+          <a class="btn" data-ng-click="remove(provider);">
+            <i class="glyphicon glyphicon-trash"></i>
+          </a>
+        </span>
+      </h2>
+      <div>{{provider.content}}</div>
+    </li>
+  </ul>
+  <h1 data-ng-hide="!providers || providers.length">No providers yet. <br> Why don't you <a href="/providers/create">Create One</a>?</h1>
+
+
+
+
+
+</section>
