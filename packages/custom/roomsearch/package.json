@@ -1,9 +1,9 @@
 {
   "name": "roomsearch",
   "version": "0.0.1",
-  "description": "Some description of roomsearch",
+  "description": "buscador de habitaciones",
   "author": {
-    "name": "mean scaffold"
+    "name": "oscar alvarez"
   },
   "mean": "0.5.5",
   "engines": {
