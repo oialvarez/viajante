@@ -1,0 +1,118 @@
+<section data-ng-controller="ProvidersController">
+  <form name="providerForm" class="form-horizontal col-md-6" role="form" data-ng-submit="create(providerForm.$valid)" novalidate>
+    <div class="form-group" ng-class="{ 'has-error' : submitted && providerForm.title.$invalid }">
+      <label mean-token="'create-title'" class="col-md-3 control-label">Title</label>
+      <div class="col-md-9">
+        <input name="title" type="text" class="form-control" data-ng-model="provider.title" id="title" placeholder="Title" required>
+        <div ng-show="submitted && providerForm.title.$invalid" class="help-block">
+          <p ng-show="providerForm.title.$error.required">Title is required</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : submitted && providerForm.subtitle.$invalid }">
+      <label mean-token="'create-subtitle'" class="col-md-3 control-label">Title</label>
+      <div class="col-md-9">
+        <input name="subtitle" type="text" class="form-control" data-ng-model="provider.subtitle" id="subtitle" placeholder="Subtitle" required>
+        <div ng-show="submitted && providerForm.subtitle.$invalid" class="help-block">
+          <p ng-show="providerForm.subtitle.$error.required">Subtitle is required</p>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="form-group" ng-class="{ 'has-error' : submitted && providerForm.cabin.$invalid }">
+      <label mean-token="'create-cabin'" class="col-md-3 control-label">Cabañas</label>
+      <div class="col-md-9">
+        <div ng-repeat="item in cabins">
+          <input type="text" placeholder="Nombre del tipo de cabaña" ng-model="item.name">
+          <input type="text" placeholder="Capacidad" ng-model="item.capacity">
+          <input type="text" placeholder="Precio" ng-model="item.price">
+          <button ng-click="removeCabin($index)" type="button">Remover</button>  
+        </div>
+        <button ng-click="addCabin()" type="button">Agregar Tipo de Cabaña</button>
+      </div>
+    </div>
+
+    <div class="form-group" ng-class="{ 'has-error' : submitted && providerForm.service.$invalid }">
+      <label mean-token="'create-service'" class="col-md-3 control-label">Servicios</label>
+      <div class="col-md-9">
+        <div ng-repeat="item in services">
+          <input type="text" placeholder="Servicio" ng-model="item.name">
+          <input type="text" placeholder="desripcion" ng-model="item.description">
+          <button ng-click="removeService($index)" type="button">Remover</button>    
+      </div>
+      <button ng-click="addService()" type="button">Agregar Servicio</button>
+    </div>
+  </div>
+
+  <div class="form-group" ng-class="{ 'has-error' : submitted && providerForm.location.$invalid }">
+    <label mean-token="'create-location'" class="col-md-3 control-label">Location</label>
+    <div class="col-md-9">
+      <input name="address" type="text" class="form-control" data-ng-model="provider.location.address" id="address" placeholder="Adress" required>
+      <input name="latitude" type="text" class="form-control" data-ng-model="provider.location.lat" id="latitude" placeholder="latitude" required>
+      <input name="longitude" type="text" class="form-control" data-ng-model="provider.location.lon" id="longitude" placeholder="longitude" required>
+      <div >
+        <label for="selected"> Ciudad: </label>
+        <select name="selected" id="selected" ng-model="provider.location.city">
+          <option ng-repeat="option in city.availableOpcions" value="{{option.comuna_nombre}}">{{option.comuna_nombre}}</option>
+        </select>
+      </div>
+      <div ng-show="submitted && providerForm.location.$invalid" class="help-block">
+        <p ng-show="providerForm.location.$error.required">Title is required</p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div class="form-group" ng-class="{ 'has-error' : submitted && providerForm.contact.$invalid }">
+    <label mean-token="'create-contact'" class="col-md-3 control-label">Contact</label>
+    <div class="col-md-9">
+      <input name="person" type="text" class="form-control" data-ng-model="provider.contact.person" id="person" placeholder="person" required>
+      <input name="phone" type="text" class="form-control" data-ng-model="provider.contact.phone" id="phone" placeholder="phone" required>
+      <input name="email" type="text" class="form-control" data-ng-model="provider.contact.email" id="email" placeholder="email" required>
+      <input name="website" type="text" class="form-control" data-ng-model="provider.contact.website" id="website" placeholder="website" required>
+      <div ng-show="submitted && providerForm.contact.$invalid" class="help-block">
+        <p ng-show="providerForm.contact.$error.required">Title is required</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group" ng-class="{ 'has-error' : submitted && providerForm.content.$invalid }">
+    <label mean-token="'create-content'" for="content" class="col-md-3 control-label">Content</label>
+    <div class="col-md-9">
+      <textarea name="content" data-ng-model="provider.content" id="content" cols="30" rows="10" placeholder="Content" class="form-control" required></textarea>
+      <div ng-show="submitted && providerForm.content.$invalid" class="help-block">
+        <p ng-show="providerForm.content.$error.required">Content is required</p>
+      </div>
+    </div>
+  </div>
+
+    <div class="form-group">
+      <label mean-token="'permissions'" for="permissions" class="col-md-3 control-label">Permissions</label>
+      <div class="col-md-9">
+         <ui-select multiple ng-model="provider.permissions" append-to-body="'true'" on-select="selectPermission()">
+            <ui-select-match placeholder="Select permissions..." ng-click="showDescendants();">{{$item}}</ui-select-match>
+            <ui-select-choices repeat="circle in availableCircles | filter:$select.search" name="permissions">
+              {{circle}}
+            </ui-select-choices>
+          </ui-select>
+      </div>
+    </div>
+
+     <div class="form-group" ng-show="descendants.length">
+        <label mean-token="'descendants'" for="descendants" class="col-md-3 control-label">Descendants</label>
+        <div class="col-md-9">
+          <span ng-repeat="descendant in descendants">{{descendant}} <span ng-hide="$last">, </span></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-offset-3 col-md-9">
+        <button mean-token="'create-submit'" type="submit" class="btn btn-info">Submit</button>
+      </div>
+    </div>
+  </form>
+</section>

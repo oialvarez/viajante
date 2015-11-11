@@ -1,0 +1,23 @@
+<section class="centered" data-ng-controller="RoomsearchController">
+    <h3>¿Dónde estás pensando viajar?</h3>
+
+    <form name="roomsearchForm" class="form-horizontal col-md-6" role="form"
+          data-ng-submit="search(roomsearchForm.$valid)" novalidate>
+        <div class="form-group"
+             ng-class="{ 'has-error' : submitted && roomsearchForm.query.$invalid }">
+            <div class="col-md-9">
+                <input name="query" type="text" class="form-control" data-ng-model="roomsearch.query" id="query"
+                       placeholder="{{roomsearch.placeholder}}" required>
+
+                <div ng-show="submitted && roomsearchForm.query.$invalid" class="help-block">
+                    <p ng-show="roomsearchForm.query.$error.required">query is required</p>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div data-ng-repeat="query in roomsearch.history">
+        <p>{{query}}</p>
+    </div>
+</section>
+
