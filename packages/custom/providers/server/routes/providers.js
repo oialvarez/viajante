@@ -22,7 +22,7 @@ var hasPermissions = function(req, res, next) {
     next();
 };
 
-module.exports = function(Providers, app, auth) {
+module.exports = function(Providers, app, auth,database) {
   
   var providers = require('../controllers/providers')(Providers);
 
