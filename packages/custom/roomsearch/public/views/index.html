@@ -1,27 +1,23 @@
-<div class="" data-ng-controller="RoomsearchController">
-  <h1>Example view from your new awesome package</h1>
-  <h2>Package: {{package.name}}</h2>
-  <ol>
-    <li>
-      <a href="/api/roomsearch/example/anyone" target="_self">Server route that anyone can access</a>
-    </li>
-    <li>
-      <a href="/api/roomsearch/example/auth" target="_self">Server route that requires authentication</a>
-    </li>
-    <li>
-      <a href="/api/roomsearch/example/admin" target="_self">Server route that requires admin user</a>
-    </li>
-    <li>
-      <a href="/api/roomsearch/example/render" target="_self">Raw Html rendering example from using swig</a>
-    </li>
-  </ol>
-  <h3><img src="/roomsearch/assets/img/logo.png" /></h3>
-  </br>
-  <p class="alert alert-info">You can find your package in /packages/roomsearch</p>
-  </br>
-  <p class="alert alert-warning">MEAN versions prior to 0.3.2 will be in /node_modules/roomsearch</p>
-  </br>
-  <h3><a href="http://learn.mean.io">Documentation</a></h3>
-  </br>
-</div>
+<section class="centered" data-ng-controller="RoomsearchController">
+    <h3>¿Dónde estás pensando viajar?</h3>
+
+    <form name="roomsearchForm" class="form-horizontal col-md-6" role="form"
+          data-ng-submit="search(roomsearchForm.$valid)" novalidate>
+        <div class="form-group"
+             ng-class="{ 'has-error' : submitted && roomsearchForm.query.$invalid }">
+            <div class="col-md-9">
+                <input name="query" type="text" class="form-control" data-ng-model="roomsearch.query" id="query"
+                       placeholder="{{roomsearch.placeholder}}" required>
+
+                <div ng-show="submitted && roomsearchForm.query.$invalid" class="help-block">
+                    <p ng-show="roomsearchForm.query.$error.required">query is required</p>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div data-ng-repeat="query in roomsearch.history">
+        <p>{{query}}</p>
+    </div>
+</section>
 
