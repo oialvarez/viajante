@@ -18,9 +18,9 @@ Roomsearch.register(function(app, auth, database) {
 
   //We are adding a link to the main menu for all authenticated users
   Roomsearch.menus.add({
-    title: 'roomsearch example page',
-    link: 'roomsearch example page',
-    roles: ['authenticated'],
+    title: 'Buscar',
+    link: 'roomsearch home',
+    roles: ['anonymous', 'authenticated'],
     menu: 'main'
   });
   
