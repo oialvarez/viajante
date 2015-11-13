@@ -1,0 +1,17 @@
+<section class="centered" data-ng-controller="RoomsearchController">
+    <h2>Map</h2>
+
+    <div class="col-md-4 col-lg-8 example-block alt">
+        <div class="span3 bs-docs-sidebar">
+            <div class="angular-google-map-container">
+                <div id="gmap">
+                    <google-map center="mymap.center" zoom="mymap.zoom" draggable="true" dragging="mymap.dragging">
+                        <marker pan="true" idKey='$index' data-ng-repeat="gmarker in mymap.markers"
+                                coords="gmarker.coords"></marker>
+                    </google-map>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
