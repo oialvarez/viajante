@@ -7,5 +7,9 @@ angular.module('mean.roomsearch')
                 url: '/roomsearch/',
                 templateUrl: 'roomsearch/views/index.html'
             });
+            $stateProvider.state('roomsearch partial', {
+                url: '/roomsearch/partial',
+                templateUrl: 'roomsearch/views/partial.html'
+            });
         }
     ]);
