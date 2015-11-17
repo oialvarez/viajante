@@ -12,7 +12,6 @@
     "angular-ui-router": "#master",
     "web-bootstrap": "./node_modules/meanio/resources/web-bootstrap.js",
     "angular-ui-select": "latest",
-    "angular-sanitize": "latest",
-    "angular-upload": "~1.0.12"
+    "angular-sanitize": "latest"
   }
 }
