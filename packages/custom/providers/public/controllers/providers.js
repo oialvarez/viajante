@@ -1,7 +1,7 @@
 'use strict';
 
-angular.module('mean.providers').controller('ProvidersController', ['$scope', '$stateParams', '$location', 'Global', 'Providers', 'MeanUser', 'Circles',
-  function($scope, $stateParams, $location, Global, Providers, MeanUser, Circles) {
+angular.module('mean.providers').controller('ProvidersController', ['$scope', '$sce','$stateParams', '$location', 'Global', 'Providers', 'MeanUser', 'Circles',
+  function($scope,$sce, $stateParams, $location, Global, Providers, MeanUser, Circles) {
     $scope.global = Global;
 
     $scope.hasAuthorization = function(provider) {
@@ -120,6 +120,8 @@ angular.module('mean.providers').controller('ProvidersController', ['$scope', '$
         $scope.cabins = provider.cabin;
         $scope.services = provider.service;
         $scope.provider = provider;
+        var url = "https://www.google.com/maps/embed/v1/view?key=AIzaSyC9EZ-pVR4ZqWCjlmRY5UzQVZlzK4w4E08&center=" + $scope.provider.location[0].lat +","+$scope.provider.location[0].lon + "&zoom=10";
+        $scope.mapUrl = $sce.trustAsResourceUrl(url);
        
       });
     };
