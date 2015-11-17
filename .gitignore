@@ -62,6 +62,7 @@ bower_components
 data/
 tests/results/**
 modules/public/
+files
 modules/views/
 /public/build/
 /packages/contrib/

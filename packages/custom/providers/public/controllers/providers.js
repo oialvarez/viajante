@@ -1,6 +1,7 @@
 'use strict';
 
-angular.module('mean.providers').controller('ProvidersController', ['$scope', '$sce','$stateParams', '$location', 'Global', 'Providers', 'MeanUser', 'Circles',
+var module = angular.module('mean.providers', ['mean.upload']);
+module.controller('ProvidersController', ['$scope', '$sce','$stateParams', '$location', 'Global', 'Providers', 'MeanUser', 'Circles',
   function($scope,$sce, $stateParams, $location, Global, Providers, MeanUser, Circles) {
     $scope.global = Global;
 
