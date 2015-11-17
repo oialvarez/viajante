@@ -1,9 +1,34 @@
 'use strict';
-
-angular.module('mean.providers').controller('ProvidersController', ['$scope', '$sce','$stateParams', '$location', 'Global', 'Providers', 'MeanUser', 'Circles',
+var module = angular.module('mean.providers', ['mean.upload']);
+module.controller('ProvidersController', ['$scope', '$sce','$stateParams', '$location', 'Global', 'Providers', 'MeanUser', 'Circles',
   function($scope,$sce, $stateParams, $location, Global, Providers, MeanUser, Circles) {
     $scope.global = Global;
 
+    $scope.images = [];
+
+    $scope.uploadFileCallback = function(file) {
+      if (file.type.indexOf('image') !== -1){
+          $scope.images.push(file);
+          $scope.addSlide(file.src);
+      }
+      else{
+          $scope.files.push(file);
+      }
+    };
+
+    $scope.uploadFinished = function(files) {
+      console.log(files);
+    };
+
+    $scope.myInterval = 5000;
+    var slides = $scope.slides = [];
+    $scope.addSlide = function(url) {
+//           var newWidth = 600 + slides.length;
+       slides.push({
+         image: url
+       });
+    };
+    
     $scope.hasAuthorization = function(provider) {
       if (!provider || !provider.user) return false;
       return MeanUser.isAdmin || provider.user._id === MeanUser.user._id;
