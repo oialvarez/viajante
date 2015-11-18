@@ -131,11 +131,27 @@ module.controller('ProvidersController', ['$scope', '$sce','$stateParams', '$loc
     };
 
     $scope.find = function() {
+
       Providers.query(function(providers) {
-        $scope.providers = providers;
+        //debugger;
+        $scope.providers = myProvider(providers);
       });
     };
 
+    function myProvider (providers){
+      //debugger;
+      var toReturn = [];
+      var length = providers.length;
+      for (var i=0; i< length; i++){
+        if(providers[i].user.name == MeanUser.user.name){
+
+          toReturn.push(providers[i]);
+        }
+
+      }
+      return toReturn;
+
+    }
     $scope.findOne = function() { 
      
       Providers.get({
