@@ -17,12 +17,12 @@ Image.register(function(app, auth, database) {
   Image.routes(app, auth, database);
 
   //We are adding a link to the main menu for all authenticated users
-  Image.menus.add({
+  /*Image.menus.add({
     title: 'image example page',
     link: 'image example page',
     roles: ['anonymous', 'authenticated'],
     menu: 'main'
-  });
+  });*/
   
   Image.aggregateAsset('css', 'image.css');
 
