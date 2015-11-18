@@ -5,10 +5,12 @@ module.controller('ProvidersController', ['$scope', '$sce','$stateParams', '$loc
     $scope.global = Global;
 
     $scope.images = [];
+    $scope.banner = "";
 
     $scope.uploadFileCallback = function(file) {
       if (file.type.indexOf('image') !== -1){
           $scope.images.push(file);
+          $scope.banner = file.src.substr(1); 
           $scope.addSlide(file.src);
       }
       else{
@@ -69,7 +71,7 @@ module.controller('ProvidersController', ['$scope', '$sce','$stateParams', '$loc
         for (var i =0; i<services.length ; i++){
           $scope.provider.service.push(services[i])         
         }
-
+        $scope.provider.bannerImg = $scope.banner;
         var provider = new Providers($scope.provider);
         
         provider.$save(function(response) {
