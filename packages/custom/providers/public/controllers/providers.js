@@ -138,7 +138,7 @@ module.controller('ProvidersController', ['$scope', '$sce','$stateParams', '$loc
       });
     };
 
-    function myProvider (providers){
+    var  myProvider = function (providers){
       //debugger;
       var toReturn = [];
       var length = providers.length;
