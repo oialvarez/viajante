@@ -8,13 +8,14 @@ var fs = require('fs'),
 
 
 function rename(file, dest, user, callback) {
-    fs.rename(file.path, directory + dest + file.name, function(err) {
+    var dir = directory + "/"+user.name+"/";
+    fs.rename(file.path, dir + dest + file.name, function(err) {
         if (err) throw err;
         else
             callback({
                 success: true,
                 file: {
-                    src: '/files/public' + dest + file.name,
+                    src: '/files/public/' +user.name +dest + file.name,
                     name: file.name,
                     size: file.size,
                     type: file.type,
@@ -74,7 +75,8 @@ function publishEvent(MeanUpload, user, data) {
 module.exports = function(MeanUpload) {
     return  {
         upload: function(req, res) {
-            var path = directory + req.body.dest;
+            var dir = directory + "/"+req.user.name+"/";
+            var path = dir + req.body.dest;
             if (!fs.existsSync(path)) {
                 mkdir_p(path, function(err) {
                     rename(req.files.file, req.body.dest, req.user, function(data) {
