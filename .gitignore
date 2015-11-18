@@ -60,11 +60,12 @@ bower_components
 # App Files
 # --------------------
 data/
+files
 tests/results/**
 modules/public/
 modules/views/
 /public/build/
-/packages/contrib/
+#/packages/contrib/
 /packages/**/**/public/assets/lib
 
 
