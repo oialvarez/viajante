@@ -24,6 +24,13 @@ var ProviderSchema = new Schema({
     required: true,
     trim: true
   },
+
+  bannerImg: {
+    type: String//,
+    //required: true,
+    //trim: true
+  },
+
   content: {
     type: String,
     required: true,

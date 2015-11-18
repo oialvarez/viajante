@@ -2,7 +2,8 @@
   <!--span>{{provider.created | date:'medium'}}</span> /
   <span>{{provider.user.name}}</span-->
   
-<div class = "customBanner">
+<div class = "customBanner" ng-style="{'background-image':'url('+ provider.bannerImg + ')'}">
+
   <h2>{{provider.title}}</h2>
    <h3>{{provider.subtitle}}</h3>
  </div>
