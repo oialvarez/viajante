@@ -1,0 +1,72 @@
+<section data-ng-controller="ProvidersController" data-ng-init="findOne()">
+  <!--span>{{provider.created | date:'medium'}}</span> /
+  <span>{{provider.user.name}}</span-->
+  
+<div class = "customBanner">
+  <h2>{{provider.title}}</h2>
+   <h3>{{provider.subtitle}}</h3>
+ </div>
+<!--div class = "customMenu"></div-->
+
+
+
+<div class = "customContent">
+  <p>{{provider.content}}</p>
+  <h3>Cabañas</h3>
+  <div data-ng-repeat = "cabin in provider.cabin">
+    <p>
+      <div style = "float:left"><strong>{{cabin.name}}</strong></div>
+      <div style = "float:left"> . Capacidad: {{cabin.capacity}} personas</div>
+      <div style = "float:left"> . Precio: {{cabin.price}}</div>
+    </p><br>
+  </div>
+  <h3>Servicios</h3>
+  <div data-ng-repeat = "cabin in provider.service">
+    <ul>
+      <li>{{cabin.name}}.{{cabin.description}}</li>
+  </ul>
+  </div>
+    <h3>Contacto</h3>
+    <div data-ng-repeat = "item in provider.contact">
+    <ul>
+    <!--span> {{item.person}}</span-->
+      <li><strong> Telefono: </strong>+52  {{item.phone}}</li>
+      <li><strong> Email:</strong> {{item.email}}</li>
+      <li><strong> Website:</strong> {{item.website}}</li>
+    </ul>
+  </div>
+    <br>
+
+    <h3>Ubicacion</h3>
+<div data-ng-repeat = "item in provider.location">
+  <div>
+    <span>{{item.address}}</span>
+    <span> . ({{item.lat}},</span>
+    <span> {{item.lon}}).</span>
+     <span> {{item.city}}.</span>
+  </div>
+  </div>
+<iframe width="600" height="450" ng-src="{{mapUrl}}"> </iframe>
+
+
+</div>
+
+
+
+
+
+<div data-ng-repeat = "item in provider.contact">
+    <div class = "customFooter"> {{item.phone}} -  {{item.email}}</div>
+</div>
+
+
+<div data-ng-if="hasAuthorization(provider)">
+    <a class="btn" href="/providers/{{provider._id}}/edit">
+      <i class="glyphicon glyphicon-edit"></i>
+    </a>
+    <a class="btn" data-ng-click="remove(provider);">
+      <i class="glyphicon glyphicon-trash"></i>
+    </a>
+  </div>
+
+</section>
