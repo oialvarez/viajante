@@ -123,7 +123,7 @@ module.exports = function(Providers) {
         all: function(req, res) {
             var query = req.acl.query('Provider');
 
-            query.find({}).sort('-created').populate('user', 'name username').exec(function(err, providers) {
+            query.find().sort('-created').populate('user', 'name username').exec(function(err, providers) {
                 if (err) {
                     return res.status(500).json({
                         error: 'Cannot list the providers'
