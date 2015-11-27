@@ -23,6 +23,72 @@
     padding-bottom: 20px;
     float:left;
     width: 90%;
+}
+
+.customBanner{
+
+    border-style: dotted;
+    border-width: 1px;
+    height: 150px;
+    margin-bottom: 10px;
+    padding: 30px;
+}
+
+.customContent{
     
+    margin-bottom: 10px;
+    padding: 30px;
+    border-style: dotted;
+    border-width: 1px;
+}
+.customOffer{
+
+    border-style: dotted;
+    border-width: 1px;
+    height: 200px;
+    margin-bottom: 10px;
+    padding: 20px;
+}
+.customCabins{
+    
+    float:left;
+    width: 50%;
+    padding:10px;
+}
+.customServices{
+    
+    float:left;
+    width: 50%;
+    padding:10px;
+}
+.customLocation{
+
+    border-style: dotted;
+    border-width: 1px;
+    height: 320px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+.customLocationData{
    
+    height: 300px;
+    float:left;
+    width: 50%;
+    padding:20px;
+}
+.customLocationMap{
+    
+    float:left;
+    width:50%;
+}
+.customFooter{
+    text-align: right;
+    text-decoration: bold;
+    border-style: dotted;
+    border-width: 1px;
+    height: 60px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+    padding-top: 10px;
+
 }

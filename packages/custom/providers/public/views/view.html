@@ -1,31 +1,34 @@
 <section data-ng-controller="ProvidersController" data-ng-init="findOne()">
-  <!--span>{{provider.created | date:'medium'}}</span> /
-  <span>{{provider.user.name}}</span-->
-  
 <div class = "customBanner">
   <h2>{{provider.title}}</h2>
    <h3>{{provider.subtitle}}</h3>
  </div>
-<!--div class = "customMenu"></div-->
-
-
-
 <div class = "customContent">
   <p>{{provider.content}}</p>
-  <h3>Cabañas</h3>
-  <div data-ng-repeat = "cabin in provider.cabin">
-    <p>
-      <div style = "float:left"><strong>{{cabin.name}}</strong></div>
-      <div style = "float:left"> . Capacidad: {{cabin.capacity}} personas</div>
-      <div style = "float:left"> . Precio: {{cabin.price}}</div>
-    </p><br>
+</div>
+<div class = "customOffer">
+  <div class="customCabins">
+    <h3>Cabañas</h3>
+    <div data-ng-repeat = "cabin in provider.cabin">
+      <p>
+        <div style = "float:left"><strong>{{cabin.name}}</strong></div>
+        <div style = "float:left"> . Capacidad: {{cabin.capacity}} personas</div>
+        <div style = "float:left"> . Precio: {{cabin.price}}</div>
+      </p><br>
+    </div>
   </div>
-  <h3>Servicios</h3>
-  <div data-ng-repeat = "cabin in provider.service">
-    <ul>
-      <li>{{cabin.name}}.{{cabin.description}}</li>
-  </ul>
+  <div class ="customServices">
+    <h3>Servicios</h3>
+    <div data-ng-repeat = "cabin in provider.service">
+      <ul>
+        <li>{{cabin.name}}.{{cabin.description}}</li>
+    </ul>
+    </div>
   </div>
+ </div>
+
+ <div class="customLocation">
+    <div class="customLocationData">
     <h3>Contacto</h3>
     <div data-ng-repeat = "item in provider.contact">
     <ul>
@@ -37,27 +40,30 @@
   </div>
     <br>
 
-    <h3>Ubicacion</h3>
-<div data-ng-repeat = "item in provider.location">
-  <div>
-    <span>{{item.address}}</span>
-    <span> . ({{item.lat}},</span>
-    <span> {{item.lon}}).</span>
-     <span> {{item.city}}.</span>
-  </div>
-  </div>
-<iframe width="600" height="450" ng-src="{{mapUrl}}"> </iframe>
-
+    <h3>Dirección</h3>
+    <div data-ng-repeat = "item in provider.location">
+      <div>
+        <span>{{item.address}}</span>
+         <span> {{item.city}}.</span>
+      </div>
+      </div>
+    </div>
+    <div class="customLocationMap">
+      <iframe width="400" height="300" ng-src="{{mapUrl}}"> </iframe>
+    </div>
 
 </div>
 
 
 
-
-
-<div data-ng-repeat = "item in provider.contact">
-    <div class = "customFooter"> {{item.phone}} -  {{item.email}}</div>
-</div>
+<div class="customFooter">
+  <div data-ng-repeat = "item in provider.contact">
+       {{item.phone}} -  {{item.email}}
+  </div>
+    <div data-ng-repeat = "item in provider.location">
+       {{item.address}} -  {{item.city}}
+  </div>
+</div >
 
 
 <div data-ng-if="hasAuthorization(provider)">
