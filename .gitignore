@@ -64,7 +64,8 @@ tests/results/**
 modules/public/
 modules/views/
 /public/build/
-/packages/contrib/
+#/packages/contrib/
++files
 /packages/**/**/public/assets/lib
 
 
